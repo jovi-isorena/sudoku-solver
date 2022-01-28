@@ -1,0 +1,88 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    margin: auto;
+    /* border: 2px solid red; */
+    width:fit-content;
+}
+
+.puzzle{
+    border: 2px solid blue;
+    
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    border: 1px solid black;
+}
+
+.grid-item{
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+}
+
+.grid-input{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border: 0;
+    font-size: 36px;
+}
+.grid::after{
+    display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.btn{
+    margin-top: 20px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    height: 50px;
+    font-size: 36px;
+}
+.solve{
+    background-color: blue;
+    color: white;
+}
+.clear{
+    background-color: gray;
+    color: white;
+}   
+.userInput{
+    background-color: yellow;
+}
+/* ==================== */
+td{
+    width: 20px;
+    height: 20px;
+    text-align: center;
+
+}
+
+td:nth-child(3), td:nth-child(6){
+    border-right: 2px solid black;
+}
+
+tr:nth-child(3), tr:nth-child(6){
+    border: 2px solid black;
+    background-color: aqua;
+}

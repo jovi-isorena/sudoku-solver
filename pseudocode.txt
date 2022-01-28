@@ -1,0 +1,7 @@
+1. Pick empty cell.
+    1a. if there are no empty cell, return true. Puzzle is complete.
+2. Try all number. 
+3. For each number, validate.
+    3a. If valid, return recursive function solve
+    3b. If not valid, get another number
+4. If there are no possible number, backtrack

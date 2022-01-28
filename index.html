@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Solver</title>
+    <link rel="stylesheet" href="sudoku.css">
+</head>
+<body>
+    <h1>Sudoku Solver</h1>
+    <!-- <button id='fill'>Fill Cells</button> -->
+    <div class="container">
+        <div class="puzzle grid">
+            <div class="grid">
+                <div class="grid-item"><input type="number" id="00" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="01" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="02" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="10" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="11" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="12" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="20" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="21" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="22" class="grid-input" min=1 max=9></div>
+            </div>
+            <div class="grid">
+                <div class="grid-item"><input type="number" id="03" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="04" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="05" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="13" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="14" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="15" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="23" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="24" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="25" class="grid-input" min=1 max=9></div>
+            </div>
+            <div class="grid">
+                <div class="grid-item"><input type="number" id="06" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="07" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="08" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="16" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="17" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="18" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="26" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="27" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="28" class="grid-input" min=1 max=9></div>
+            </div>
+            <div class="grid">
+                <div class="grid-item"><input type="number" id="30" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="31" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="32" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="40" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="41" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="42" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="50" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="51" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="52" class="grid-input" min=1 max=9></div>
+            </div>
+            <div class="grid">
+                <div class="grid-item"><input type="number" id="33" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="34" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="35" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="43" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="44" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="45" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="53" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="54" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="55" class="grid-input" min=1 max=9></div>
+            </div>
+            <div class="grid">
+                <div class="grid-item"><input type="number" id="36" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="37" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="38" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="46" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="47" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="48" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="56" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="57" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="58" class="grid-input" min=1 max=9></div>
+            </div>
+            <div class="grid">
+                <div class="grid-item"><input type="number" id="60" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="61" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="62" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="70" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="71" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="72" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="80" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="81" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="82" class="grid-input" min=1 max=9></div>
+            </div>
+            <div class="grid">
+                <div class="grid-item"><input type="number" id="63" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="64" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="65" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="73" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="74" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="75" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="83" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="84" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="85" class="grid-input" min=1 max=9></div>
+            </div>
+            <div class="grid">
+                <div class="grid-item"><input type="number" id="66" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="67" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="68" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="76" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="77" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="78" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="86" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="87" class="grid-input" min=1 max=9></div>
+                <div class="grid-item"><input type="number" id="88" class="grid-input" min=1 max=9></div>
+            </div>
+        </div>
+        <button class="btn solve">SOLVE</button>
+        <button class="btn clear">CLEAR</button>
+    </div>
+
+
+    <script src="sudoku_solver.js"></script>
+</body>
+</html>
