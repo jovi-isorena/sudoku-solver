@@ -34,6 +34,7 @@
     text-align: center;
     border: 0;
     font-size: 36px;
+    animation: textGrow 1s;
 }
 .grid::after{
     display: none;
@@ -48,6 +49,15 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+@keyframes textGrow {
+    from{
+        font-size: 0;
+    }
+    to{
+        font-size: 36px;
+    }
 }
 
 .btn{

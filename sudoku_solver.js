@@ -4,8 +4,9 @@ let btnClear = document.querySelector('.clear');
 // let btnFill = document.querySelector('#fill');
 let grid = document.querySelector('.puzzle');
 let recursionCounter = 0;
+let intervalID;
 const RECURSIONLIMIT = 10000;
-const LIMITON = false;
+const LIMITON = true;
 // btnFill.addEventListener('click', ()=>{
 //     let puzzle = getInitialValue();
 //     fillCells(puzzle);
@@ -15,8 +16,11 @@ const LIMITON = false;
 btnSolve.addEventListener('click', ()=>{ 
     let puzzle = getInitialValue();
     console.table(puzzle);
+    intervalID = setInterval(displayPuzzle, 10, puzzle);
+
     if(solve(puzzle)){
         alert('Puzzle Solved.');
+        clearInterval(intervalID);
     }
     else{
         alert('Puzzle is unsolvable.');
@@ -75,9 +79,10 @@ function getInitialValue(){
 function solve(puzzle){
     recursionCounter++;
     // console.log("Recursion Counter: " + recursionCounter);
-
-    displayPuzzle(puzzle);
-    if(recursionCounter > RECURSIONLIMIT && LIMITON){
+    // setTimeout(displayPuzzle, 10, puzzle);
+    setTimeout(displayPuzzle,1,puzzle);
+    // displayPuzzle(puzzle);
+    if((recursionCounter > RECURSIONLIMIT) && LIMITON){
         console.log("Recursion Limit");
         return true;
     }    
